@@ -1,0 +1,26 @@
+{% extends 'navbar.html' %}
+{% block content %}
+
+<!-- Background image -->
+<style>
+    #sixthHomejt {
+        background-image: url('https://www.tcs.com/content/dam/global-tcs/en/images/what-we-do/industries/public-services/Solutions/digigov-hmis-hospital-management-system-maintain-emr.jpg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+        color: rgb(235, 237, 229);
+        height: 903px;
+    }
+</style>
+<!-- Background image -End -->
+
+<!-- Text Content -->
+<div class="mask text-center pb-5" id="sixthHomejt">
+    <br>
+    <div class="pt-5 align-middle">
+        <h1 class="pt-5 display-3 align-text-bottom"><strong>Clinic Hospital Management</strong></h1>
+        <h2 class="pt-2 pb-4">Worlds next generation Hospital</h2>
+        <a href="{% url 'login'  %}" class="btn-lg btn-success mt-5  align-text-bottom">Login here... </a>
+    </div>
+</div>
+<!-- Text cotent-End -->
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Edit patient form -->
+<div class="container-fluid">
+  <div class="row d-flex align-items-center justify-content-center">
+    <div class="col-md-6 pt-3">
+      <h1 class="text-center pt-5">Edit Patient</h1>
+      <form method="POST" enctype="multipart/form-data" class="pt-2">
+        {%csrf_token%}
+        <table class="table table-striped">
+          {{form.as_table}}
+          <tr>
+            <td colspan="2"><button type="submit" class="btn btn-success btn-block">Save Changes</button></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- Edit patient form-End -->
+{%endblock%}

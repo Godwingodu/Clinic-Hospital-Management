@@ -1,0 +1,38 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% block content %}
+<h1 class="text-center pt-3 font-weight-italic">Delete Patient</h1>
+<p class="text-center">Are you sure, You want to delete?</p>
+<div class="card container pt-4 shadow" style="width: 22rem; border: 1px solid rgb(167, 164, 164);">
+
+  <!-- Delete patient form -->
+  <form action="" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    {%if not object.profile_pic %}
+    <img class="card rounded-circle rounded mx-auto d-block" height="180px" width="180px"
+      src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="">
+    {%else%}
+    <img class="card rounded-circle rounded mx-auto d-block" height="180px" width="180px"
+      src="{{object.profile_pic.url}}" alt="">
+    {%endif%}
+    <div class="card-body text-center">
+      <h4 class="card-title "> {{object.fullname|capfirst}}</h4>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Dob: {{object.dob}}</li>
+      <li class="list-group-item">Gender: {{object.gender}}</li>
+      <li class="list-group-item">Phone: {{object.contact_number}}</li>
+      <li class="list-group-item">Address: {{object.address}}</li>
+      <li class="list-group-item">Medical Condition: {{object.medical_condition}}</li>
+      <li class="list-group-item">
+        <div class=" text-center pt-2">
+          <button type="submit" class="btn btn-danger btn-block  ">Confirm Delete</button>
+        </div>
+      </li>
+    </ul>
+  </form>
+  <!-- Delete patient form-End -->
+  
+</div>
+</div>
+{%endblock%}

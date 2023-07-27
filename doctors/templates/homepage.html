@@ -1,0 +1,212 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% block content %}
+
+<!-- External Links -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="{% static 'css/style1.css' %}" rel="stylesheet" />
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+<!-- External links-End -->
+
+<div class="container-fluid pl-5 pr-5  ">
+  <div class="row pl-5 pr-5 ">
+    <div class="col-md-12">
+
+      <!-- If patients list is Empty -->
+      {% if patients|length == 0 %}
+      <div class="text-center mt-4 mb-3">
+        <h1>Patients List</h1>
+      </div>
+      <table class="table table-striped border">
+        <thead>
+          <tr>
+            <th colspan="10">
+              <form class="example" action="{% url 'search' %}" method="GET">
+                <input type="text" placeholder="Search.." name="search" value="{{searchinput}}">
+                <button type="submit"><i class="fa fa-search"></i></button>
+              </form>
+          </tr>
+          <tr>
+            <th>Sr. No</th>
+            <th>Profile Pic</th>
+            <th>Full Name</th>
+            <th>DOB</th>
+            <th>Gender</th>
+            <th>Contact Number</th>
+            <th>Address</th>
+            <th>Medical Condition</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+          </th>
+        </thead>
+      </table>
+      <div class="alert danger-alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <h3 style="text-align: center">Patients List Empty</h3>
+      </div>
+      <!-- Patient list is empty -->
+
+      {%else %}
+
+      <!-- If Patient list is not empty -->
+      <div class="text-center mt-4 mb-3">
+        <h1>Patients List</h1>
+      </div>
+      <table class="table table-striped border">
+        <thead>
+          <tr>
+
+            <!-- Filter data entries -->
+            <td colspan="6">
+              <form method="get">
+                <div class="d-flex flex-row">
+                  <div class="p-2"> <label>Show up to </label> </div>
+                  <div class="p-2">
+                    <select name="end_index" id="end_index" class="form-control">
+                      <option>5</option>
+                      <option>10</option>
+                      <option>15</option>
+                    </select>
+                  </div>
+                  <div class="p-2"><button type="submit">Entries</button></div>
+                </div>
+              </form>
+            </td>
+            <!-- Filter data entries -End -->
+
+            <td colspan="3"></td>
+
+            <!-- Export data in to file format -->
+            <td>
+              <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Export as </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="{% url 'exporttopdf'  %}">Pdf</a>
+                  <a class="dropdown-item" href="{% url 'exporttoexcel'  %}">Excel</a>
+                  <a class="dropdown-item" href="{% url 'exporttocsv'  %}">Csv</a>
+                </div>
+              </div>
+            </td>
+            <!-- Export data in to file format- End -->
+
+          </tr>
+
+          <!-- Search Function -->
+          <tr>
+            <th colspan="10">
+              <form class="example" action="{% url 'search' %}" method="GET">
+                <input type="text" placeholder="Search.." name="search" value="{{searchinput}}">
+                <button type="submit"><i class="fa fa-search"></i></button>
+              </form>
+          </tr>
+          <!-- Search Function- End -->
+
+          <!-- Table Headings -->
+          <tr>
+            <th>Sr. No</th>
+            <th>Profile Pic</th>
+            <th>Full Name</th>
+            <th>Dob</th>
+            <th>Gender</th>
+            <th>Contact Number</th>
+            <th>Address</th>
+            <th>Medical Condition</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <!-- Table Headings- End -->
+
+
+        <!-- Iterating Patients data  -->
+        <tbody>
+          {% for p in patients %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            {%if not p.profile_pic %}
+            <td>
+              <img class="card rounded-circle rounded mx-auto d-block " height="65px" width="65px"
+                src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt=""></i>
+            </td>
+            {%else%}
+            <td><img class="rounded-circle mr-1" height="65px" width="65px" src="{{p.profile_pic.url}}" alt=""></td>
+            {%endif%}
+            <td><a href="{% url 'specificpatient' p.id %}" class="">{{p.fullname}}</td>
+              <td>{{p.dob}}</td>
+            <td>{{p.gender}}</td>
+            <td>{{p.contact_number}}</td>
+            <td>{{p.address}}</td>
+            <td>{{p.medical_condition}}</td>
+            <td><a href="{% url 'editpatient' p.id %}" class="btn btn-info">Edit </a></td>
+            <td><a href="{% url 'deletepatient' p.id %}" class="btn btn-danger">Delete </a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        <!-- Iterating patients data- End -->
+
+      </table>
+      {% endif %}
+      <!-- Patient list is not empty-End -->
+
+
+
+      <!-- Alert Messages -->
+      <div>
+        {% if messages %}
+        {% for message in messages %}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <div>
+          <script>
+            alertify.set('notifier', 'position', 'bottom-right');
+            alertify.success('Patient added Successfully');
+          </script>
+        </div>
+        {% endif%}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+        <div>
+          <script>
+            alertify.set('notifier', 'position', 'bottom-right');
+            alertify.success('Patient Details Updated');
+          </script>
+        </div>
+        {% endif%}
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+        <div>
+          <script>
+            alertify.set('notifier', 'position', 'bottom-right');
+            alertify.error('Patient Deleted Succesfully');
+          </script>
+        </div>
+        {% endif%}
+        {% endfor %}
+        {% endif %}
+      </div>
+      <!-- Alert messages- End -->
+
+    </div>
+  </div>
+</div>
+
+<!-- Pagination -->
+<div class=" text-center fixed-bottom" style="background-color: white;">
+  <span class="step-links justify-content-bottom">
+    {% if patients.has_previous %}
+    <a href="?page=1">&laquo; first</a>
+    <a href="?page={{ patients.previous_page_number }}">previous</a>
+    {% endif %}
+    <span class="current">
+      Page {{ patients.number }} of {{ patients.paginator.num_pages }}.
+    </span>
+    {% if patients.has_next %}
+    <a href="?page={{ patients.next_page_number }}">next</a>
+    <a href="?page={{ patients.paginator.num_pages }}">last &raquo;</a>
+    {% endif %}
+  </span>
+</div>
+<!-- Pagination- End -->
+
+{% endblock %}

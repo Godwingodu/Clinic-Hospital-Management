@@ -1,0 +1,75 @@
+/* ----search bar----- */
+body {
+  font-family: Arial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: center;
+  width: 70%;
+  align-content: center;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: center;
+  width: 15%;
+  padding: 10px;
+  background: #4baf68;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  margin-left: -7px;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+/* ---TODOLIST EMPTY-- */
+h3{
+  font-family:Quicksand;
+  color: black;
+}
+.alert {
+  width:95%;
+  margin:20px auto;
+  padding: 8px;
+  border-radius:10px;
+  box-shadow:0 0 15px 5px;
+  background-color: #f7a7a3;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+td,th{
+  text-align: center;
+}
+
+
