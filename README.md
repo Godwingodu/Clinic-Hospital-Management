@@ -35,3 +35,28 @@ As an optional addition, I also implemented the following bonus features:
 5. Unit Tests: I included unit tests for critical parts of the application to ensure its stability and
 reliability.
 
+## Screenshots
+
+Front-page:-
+![image](https://github.com/Godwingodu/Clinic-Hospital-Management/assets/108955514/c5f82f52-98cb-4916-a83c-4614d3da97a1)
+
+Home-page:-
+![image](https://github.com/Godwingodu/Clinic-Hospital-Management/assets/108955514/14747174-c0cf-4026-8386-fbf781823196)
+
+View-Patient:-
+![image](https://github.com/Godwingodu/Clinic-Hospital-Management/assets/108955514/1f7ab138-c6b0-4b2a-acdf-aceda9d1f0ae)
+
+User-Registration:-
+![image](https://github.com/Godwingodu/Clinic-Hospital-Management/assets/108955514/6ab88553-c2ad-4359-ba16-6473263b1d5c)
+
+Add-Patient:-
+![image](https://github.com/Godwingodu/Clinic-Hospital-Management/assets/108955514/05ef82b1-8913-4025-b34d-6e5d99ccd15c)
+
+User-Login:-
+![image](https://github.com/Godwingodu/Clinic-Hospital-Management/assets/108955514/2c6d3f36-f0b8-449b-9515-871f37846545)
+
+Delete-Patient
+![image](https://github.com/Godwingodu/Clinic-Hospital-Management/assets/108955514/b747f902-57d6-4ea0-80fa-18f63b063f1b)
+
+Update-Patient:-
+![image](https://github.com/Godwingodu/Clinic-Hospital-Management/assets/108955514/fccdbff2-f8b0-4491-9c07-a1bd82e2c37d)
