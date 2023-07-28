@@ -41,7 +41,7 @@ Front-page:-
 ![image](https://github.com/Godwingodu/Clinic-Hospital-Management/assets/108955514/c5f82f52-98cb-4916-a83c-4614d3da97a1)
 
 Home-page:-
-![image](https://github.com/Godwingodu/Clinic-Hospital-Management/assets/108955514/14747174-c0cf-4026-8386-fbf781823196)
+![image](https://github.com/Godwingodu/Clinic-Hospital-Management/assets/108955514/ea90b983-87bd-4939-87c0-1ebea0ba3f81)
 
 View-Patient:-
 ![image](https://github.com/Godwingodu/Clinic-Hospital-Management/assets/108955514/1f7ab138-c6b0-4b2a-acdf-aceda9d1f0ae)
